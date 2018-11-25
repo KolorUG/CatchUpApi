@@ -17,6 +17,7 @@ namespace CatchUppApi.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public ICollection<Rating> Ratings {get; set;}
+        public ICollection<Order> Orders {get; set;}
 
         
     }

@@ -32,7 +32,7 @@ namespace CatchUppApi
             services.AddAuthentication(AzureADB2CDefaults.BearerAuthenticationScheme)
                 .AddAzureADB2CBearer(options => Configuration.Bind("AzureAdB2C", options));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<CatchUpDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CatchUp")));
+            services.AddDbContext<CatchUpDbContext>(options => options.UseSqlServer("Server=tcp:catchupkolor.database.windows.net,1433;Initial Catalog=CatchUp;Persist Security Info=False;User ID=kolor_ug;Password=kn_KolUG;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
