@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using CatchUppApi.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace CatchUppApi
 {
@@ -30,6 +32,7 @@ namespace CatchUppApi
             services.AddAuthentication(AzureADB2CDefaults.BearerAuthenticationScheme)
                 .AddAzureADB2CBearer(options => Configuration.Bind("AzureAdB2C", options));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDbContext<CatchUpDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CatchUp")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
