@@ -6,8 +6,7 @@ namespace CatchUppApi.Models
 {
     public class Rating : BaseEntity
     {
-        [ForeignKey("OrderId")]
-        public Order Order {get; set;}
+        [ForeignKey("OrderId")]        
         public int OrderId {get; set;}
         public String Role {get; set;}
         public short Rate {get; set;}
